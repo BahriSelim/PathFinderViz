@@ -1,0 +1,91 @@
+header{
+    background-color: rgb(1, 41, 41);
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+span{
+    display: inline-block;
+   
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+
+}
+#walls{
+    background-color: rgb(0, 0, 0);
+    border: 0px;
+}
+#a{
+    background-color: rgb(7, 77, 73);
+    border: 0px;
+}
+#b{
+    background-color: cadetblue;
+    border: 0px;
+}
+select,span,input{
+    margin-left: 50px;
+}
+label{
+    color: white;
+    font-size: x-large;
+    position: relative;
+    left: 50px;
+}
+select{
+    font-size: large;
+    color: rgb(1, 41, 41);
+    height: 30px;
+    border-radius: 10px;
+    border: 0px;
+}
+input[type="button"]{
+    width: 100px;
+    height: 30px;
+    font-size: large;
+    color: rgb(1, 41, 41);;
+    border: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+input[type="button"]:hover{
+    background-color: rgb(2, 29, 29);
+    color: white;
+}
+section{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20px); /* Create columns of 20px each */
+    grid-template-rows: repeat(auto-fill, 20px);    /* Create rows of 20px each */
+    width: 100%; /* Adjust width as needed */
+    height: 100vh; /* Full viewport height for demonstration */
+    background-color: #f0f0f0; /* Optional background */
+}
+.square {
+    width: 18px;
+    height: 18px;
+    border: 0.25px solid grey; /* Optional for square borders */
+    margin: 0px;
+    padding: 0px;
+    transition: all ease-in-out 0.7s;
+}
+#container {
+    user-select: none;        /* Prevent text selection */
+    -webkit-user-drag: none;  /* Disable drag in Webkit browsers (like Chrome, Safari) */
+    -moz-user-drag: none;     /* Disable drag in Firefox */
+    -ms-user-drag: none;      /* Disable drag in Internet Explorer */
+    pointer-events: all;      /* Ensure the container remains interactive */
+}
+#chosealgo{
+    text-align: center;
+}

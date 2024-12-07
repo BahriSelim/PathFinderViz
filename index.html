@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mystyles.css">
+</head>
+<body>
+    <header>
+        <form action="" method="get">
+            <div>
+            <label for="walls">Walls </label><span id="walls" name="walls"></span>
+            <label for="a">Point A </label><span id="a" name="a"  ></span>
+            <label for="b">Point B </label><span id="b" name="b" ></span>
+            <select name="chosealgo" id="chosealgo">
+                <option value="">Chose an algorithme</option>
+                <option value="BFS">BFS</option>
+                <option value="DFS">DFS(chose BFS)</option>
+                <option value="A*">A*(chose BFS)</option>
+            </select>
+            <input type="button" value="Start" class="start button" id="buttonstart"><input type="button" value="Clear" class="start button" id="clear"></div>
+        </form>
+    </header>
+    <section id="container">
+
+    </section>
+    <script src="control2.js"></script>
+</body>
+</html>
