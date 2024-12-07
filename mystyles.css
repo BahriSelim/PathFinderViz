@@ -77,7 +77,7 @@ section{
     border: 0.25px solid grey; /* Optional for square borders */
     margin: 0px;
     padding: 0px;
-    transition: all ease-in-out 0.7s;
+    transition: all ease-in-out 0.1s;
 }
 #container {
     user-select: none;        /* Prevent text selection */
