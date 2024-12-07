@@ -129,6 +129,7 @@ container.addEventListener("mousedown",(e)=>{
 
 
 const directions = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+
 function BFS(start,end){
     const queue=[start];
     let [sr,sc]=start;
@@ -136,13 +137,16 @@ function BFS(start,end){
     const parent = Array.from({ length: rows }, () => Array(colmns).fill(null));  // array of that gives u the prev cell of a cell x , parent[0,1]=start=A=[0,0]
     const visited = Array.from({ length: rows }, () => Array(colmns).fill(false));// array of bools gives wheather the cell has been visited or not , visited[0,1]=false 
     visited[sr][sc]=true;
+    let delay=0
     while(queue.length>0){
         const [r,c]=queue.shift()
-
+        setTimeout(()=>{graycol(r,c)},delay)
+        delay+=5
         if(r===er && c===ec){
             const finalpath=reconstructPath(parent,start,end);
-            
-
+            setTimeout(()=>{
+                updategrid(finalpath)
+            },delay)
             return finalpath 
         }
         for (const [dr,dc] of directions){
@@ -152,6 +156,8 @@ function BFS(start,end){
                 visited[nr][nc]=true;
                 queue.push([nr,nc]);
                 parent[nr][nc]=[r,c];
+                setTimeout(()=>{yellow(nr,nc)},delay)
+                delay+=5
             } 
         }
 
@@ -177,12 +183,18 @@ function reconstructPath(parent, start, end) {
 }
 function updategrid(path){
     const n=path.length;
+    let delay=0
+    
     for(let i=1;i<n-1;i++){
-        const [r,c]=path[i]
-        let id=`r${r}c${c}`
-        const box=document.getElementById(id)
-        box.style.backgroundColor="rgb(255, 0, 0)";
 
+        setTimeout(()=>{
+            const [r,c]=path[i]
+            let id=`r${r}c${c}`
+            const box=document.getElementById(id)
+            box.style.backgroundColor="rgb(255, 0, 0)";
+            
+        },delay)
+        delay+=50
     }
 }
 
@@ -194,7 +206,7 @@ startbutton.addEventListener("click", () => {
     if (start && end && chosealgo=="BFS"){
         const fianalpath=BFS(start, end)
         console.log(fianalpath)
-        updategrid(fianalpath)
+        
     }
     else{
         alert("select an algo")
@@ -217,4 +229,19 @@ clearb.addEventListener("click",()=>{
 })
 
 
+function graycol(r,c){
+    if(m[r][c]!=1 && m[r][c]!=2 && m[r][c]!=3 ){
+        let box=document.getElementById(`r${r}c${c}`)
+        box.style.backgroundColor="rgb(133, 158, 187)"
+        
+    }
 
+
+}
+function yellow(r,c){
+    if(m[r][c]!=1 && m[r][c]!=2 && m[r][c]!=3 ){
+        let box=document.getElementById(`r${r}c${c}`)
+        box.style.backgroundColor="yellow"
+        
+    }
+}
