@@ -126,7 +126,7 @@ container.addEventListener("mousedown",(e)=>{
 
 
 //BFS ALGO:
-
+let d=0
 
 const directions = [[-1, 0], [1, 0], [0, -1], [0, 1]];
 
@@ -142,6 +142,7 @@ function BFS(start,end){
         const [r,c]=queue.shift()
         setTimeout(()=>{graycol(r,c)},delay)
         delay+=5
+        d=delay
         if(r===er && c===ec){
             const finalpath=reconstructPath(parent,start,end);
             setTimeout(()=>{
@@ -165,6 +166,7 @@ function BFS(start,end){
     console.log("No path found");
     setTimeout(()=>{alert("No Path Found")},delay+500)
     
+    console.log("d=",d)
     return []
 
 
@@ -200,15 +202,17 @@ function updategrid(path){
     }
 }
 
-
-
+console.log("d=",d)
+let clearb=document.getElementById("clear")
 const startbutton = document.getElementById("buttonstart");
 startbutton.addEventListener("click", () => {
+    clearb.disabled = true
     const chosealgo=document.getElementById("chosealgo").value
     if (start && end && chosealgo=="BFS"){
         const fianalpath=BFS(start, end)
         console.log(fianalpath)
-        
+        setTimeout(()=>{clearb.disabled = false},d+500)
+        console.log("d=",d)
     }
     else if(!(start&&end)){
         alert("place A and B")
@@ -216,11 +220,12 @@ startbutton.addEventListener("click", () => {
     else{
         alert("select an algo")
     }
-
+    
 });
 
-let clearb=document.getElementById("clear")
+
 clearb.addEventListener("click",()=>{
+   
     start=null
     end=null
     for(let i=0;i<rows;i++){
@@ -233,6 +238,7 @@ clearb.addEventListener("click",()=>{
         }
         
     }
+    
 })
 
 
