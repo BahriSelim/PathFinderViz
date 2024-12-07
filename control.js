@@ -164,6 +164,7 @@ function BFS(start,end){
     }
     console.log("No path found");
     setTimeout(()=>{alert("No Path Found")},delay+500)
+    
     return []
 
 
@@ -209,6 +210,9 @@ startbutton.addEventListener("click", () => {
         console.log(fianalpath)
         
     }
+    else if(!(start&&end)){
+        alert("place A and B")
+    }
     else{
         alert("select an algo")
     }
@@ -217,6 +221,8 @@ startbutton.addEventListener("click", () => {
 
 let clearb=document.getElementById("clear")
 clearb.addEventListener("click",()=>{
+    start=null
+    end=null
     for(let i=0;i<rows;i++){
         for(let j=0;j<colmns;j++){
     
