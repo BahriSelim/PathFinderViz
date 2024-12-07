@@ -163,7 +163,7 @@ function BFS(start,end){
 
     }
     console.log("No path found");
-    alert("No Path Found")
+    setTimeout(()=>{alert("No Path Found")},delay+500)
     return []
 
 
